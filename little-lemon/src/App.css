@@ -1,0 +1,106 @@
+/* Basic layout and look for Little Lemon */
+:root {
+  --primary: #f59e0b;
+  --accent: #e11d48;
+  --muted: #6b7280;
+  --bg: #fffaf0;
+  --container: 1100px;
+}
+
+* { box-sizing: border-box; }
+body, html, #root { height: 100%; }
+
+.App { min-height: 100%; background: linear-gradient(180deg, #fff, #fffaf0 40%); color: #111; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header */
+.ll-header {
+  background: linear-gradient(90deg, var(--primary), #f97316);
+  color: white;
+  padding: 1.25rem 0;
+}
+.ll-header h1 { margin: 0; font-size: 1.8rem; letter-spacing: 0.5px; }
+.ll-header .tagline { margin: 0.2rem 0 0; opacity: 0.95; font-size: 0.95rem; }
+
+/* Menu */
+.menu { margin-top: 1rem; background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.menu h2 { margin-top: 0; }
+.menu-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.tab {
+  background: transparent;
+  border: 1px solid #eee;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tab.active { background: var(--primary); color: white; border-color: rgba(0,0,0,0.05); }
+
+/* menu items */
+.menu-list .category { padding: 0.5rem 0; }
+.items { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+.menu-item {
+  display: flex; justify-content: space-between; align-items: center;
+  border: 1px solid #f3f3f3; padding: 0.6rem; border-radius: 8px;
+}
+.menu-item h4 { margin: 0 0 0.25rem 0; font-size: 1rem; }
+.menu-item .desc { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.menu-item-right { display: flex; align-items: center; gap: 0.75rem; }
+
+/* Cart */
+.cart { margin-top: 1rem; background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+.cart-list { display: grid; gap: 0.5rem; }
+.cart-item { display:flex; justify-content:space-between; border-bottom: 1px dashed #eee; padding: 0.4rem 0; }
+
+/* Booking */
+.booking { margin-top: 1rem; background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+.booking-form .row { display:flex; gap: 1rem; margin-bottom: 0.75rem; flex-wrap:wrap; }
+.booking-form label { flex: 1; display:flex; flex-direction:column; font-size:0.95rem; }
+.booking-form input { padding: 0.5rem; border-radius:6px; border:1px solid #e6e6e6; margin-top:0.35rem; }
+.form-actions { margin-top: 0.5rem; }
+.small-note { color: var(--muted); margin-top: 0.5rem; }
+
+/* Reservations */
+.reservations { margin-top: 1rem; background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+.reservation { display:flex; justify-content:space-between; align-items:center; padding: 0.6rem 0; border-bottom: 1px solid #fafafa; }
+.reservation .phone { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+
+/* Footer */
+.ll-footer { margin-top: 2rem; padding: 0.75rem 0; text-align:center; color: var(--muted); }
+
+/* Buttons */
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn.small { padding: 0.35rem 0.6rem; font-size: 0.9rem; }
+.btn.danger { background: #ef4444; }
+.btn:active { transform: translateY(1px); }
+
+/* messages */
+.message { margin-top: 0.6rem; padding: 0.6rem; border-radius: 8px; }
+.message.error { background: #fff1f2; color: #9f1239; }
+.message.success { background: #ecfdf5; color: #065f46; }
+
+/* Utilities */
+.small { font-size: 0.9rem; color: var(--muted); }
+
+/* Responsive */
+@media (min-width: 720px) {
+  .items { grid-template-columns: 1fr 1fr; }
+  .booking-form .row { gap: 1rem; }
+}
+
+@media (min-width: 1000px) {
+  main { display: grid; grid-template-columns: 1fr 360px; gap: 1rem; align-items: start; }
+  .menu { grid-column: 1 / 2; }
+  .cart { grid-column: 2 / 3; position: sticky; top: 1rem; }
+}
